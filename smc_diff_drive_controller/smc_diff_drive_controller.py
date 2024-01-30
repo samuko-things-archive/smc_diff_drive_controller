@@ -153,9 +153,10 @@ class DiffDriveController(Node):
 
 
         self.ser = SMC(self.serial_port)
-        for i in range(5):
+        for i in range(6):
           sleep(1.0)
           self.get_logger().info('configuring controller: %d sec' %(i))
+        self.ser.sendTargetVel(0.0, 0.0)
         self.get_logger().info('configuration complete')
         
 
